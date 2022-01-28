@@ -73,7 +73,7 @@ namespace OrchardCore.Menu
 
                     foreach (var contentItem in menuItems)
                     {
-                        var shape = await shapeFactory.CreateAsync("MenuItem", Arguments.From(new
+                        var shape = await shapeFactory.CreateAsync("MenuItem", ChangeArguments.From(new
                         {
                             ContentItem = contentItem,
                             Level = 0,
@@ -83,7 +83,7 @@ namespace OrchardCore.Menu
                         shape.Metadata.Differentiator = differentiator;
 
                         // Don't use Items.Add() or the collection won't be sorted
-                        await ((Shape)menu).AddAsync(shape);
+                        await ((ChangeShape)menu).AddAsync(shape);
                     }
                 });
 
@@ -104,7 +104,7 @@ namespace OrchardCore.Menu
                     {
                         foreach (var contentItem in menuItems)
                         {
-                            var shape = await shapeFactory.CreateAsync("MenuItem", Arguments.From(new
+                            var shape = await shapeFactory.CreateAsync("MenuItem", ChangeArguments.From(new
                             {
                                 ContentItem = contentItem,
                                 Level = level + 1,

@@ -6,9 +6,9 @@ namespace OrchardCore.DisplayManagement.Shapes
 {
     public class ShapeDebugView
     {
-        private readonly Shape _shape;
+        private readonly ChangeShape _shape;
 
-        public ShapeDebugView(Shape shape)
+        public ShapeDebugView(ChangeShape shape)
         {
             _shape = shape;
         }
@@ -32,7 +32,7 @@ namespace OrchardCore.DisplayManagement.Shapes
             }
         }
 
-        [DebuggerDisplay(" { _shapeType == null ? _value : \"Shape: \" + _shapeType}", Name = "{_key,nq}")]
+        [DebuggerDisplay(" { _shapeType == null ? _value : \"ChangeShape: \" + _shapeType}", Name = "{_key,nq}")]
         public class KeyValuePairs
         {
             public KeyValuePairs(string key, object value)

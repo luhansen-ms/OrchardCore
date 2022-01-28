@@ -31,7 +31,7 @@ namespace OrchardCore.DisplayManagement.Liquid.Filters
                 properties.Add(name.ToPascalCaseUnderscore(), arguments[name].ToObjectValue());
             }
 
-            var task = _shapeFactory.CreateAsync(type, Arguments.From(properties));
+            var task = _shapeFactory.CreateAsync(type, ChangeArguments.From(properties));
             if (!task.IsCompletedSuccessfully)
             {
                 return Awaited(task, ctx.Options);

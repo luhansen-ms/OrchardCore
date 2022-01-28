@@ -25,14 +25,14 @@ namespace OrchardCore.DisplayManagement.Implementation
 
         public override bool TryInvoke(InvokeBinder binder, object[] args, out object result)
         {
-            result = InvokeAsync(null, Arguments.From(args, binder.CallInfo.ArgumentNames));
+            result = InvokeAsync(null, ChangeArguments.From(args, binder.CallInfo.ArgumentNames));
 
             return true;
         }
 
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
         {
-            result = InvokeAsync(binder.Name, Arguments.From(args, binder.CallInfo.ArgumentNames));
+            result = InvokeAsync(binder.Name, ChangeArguments.From(args, binder.CallInfo.ArgumentNames));
 
             return true;
         }

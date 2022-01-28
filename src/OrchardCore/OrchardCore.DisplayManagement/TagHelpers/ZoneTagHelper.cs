@@ -37,7 +37,7 @@ namespace OrchardCore.DisplayManagement.TagHelpers
 
             var zone = layout.Zones[Name];
 
-            if (zone is Shape shape)
+            if (zone is ChangeShape shape)
             {
                 await shape.AddAsync(childContent, Position);
             }

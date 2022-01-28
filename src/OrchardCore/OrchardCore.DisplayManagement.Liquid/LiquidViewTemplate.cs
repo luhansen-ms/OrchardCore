@@ -109,18 +109,18 @@ namespace OrchardCore.DisplayManagement.Liquid
 
         private static Func<object, string, object> _getter => (o, n) =>
         {
-            if (o is Shape shape)
+            if (o is ChangeShape shape)
             {
                 object obj = n switch
                 {
-                    nameof(Shape.Id) => shape.Id,
-                    nameof(Shape.TagName) => shape.TagName,
-                    nameof(Shape.HasItems) => shape.HasItems,
-                    nameof(Shape.Classes) => shape.Classes,
-                    nameof(Shape.Attributes) => shape.Attributes,
-                    nameof(Shape.Metadata) => shape.Metadata,
-                    nameof(Shape.Items) => shape.Items,
-                    nameof(Shape.Properties) => shape.Properties,
+                    nameof(ChangeShape.Id) => shape.Id,
+                    nameof(ChangeShape.TagName) => shape.TagName,
+                    nameof(ChangeShape.HasItems) => shape.HasItems,
+                    nameof(ChangeShape.Classes) => shape.Classes,
+                    nameof(ChangeShape.Attributes) => shape.Attributes,
+                    nameof(ChangeShape.Metadata) => shape.Metadata,
+                    nameof(ChangeShape.Items) => shape.Items,
+                    nameof(ChangeShape.Properties) => shape.Properties,
                     _ => null
                 };
 

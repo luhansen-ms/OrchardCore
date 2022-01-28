@@ -23,7 +23,7 @@ public static class OrchardRazorHelperExtensions
         var context = new Context();
 
         // Retrieve the 'ContentItem' from the ambient shape view model.
-        if (model is Shape shape && shape.TryGetProperty("ContentItem", out object contentItem))
+        if (model is ChangeShape shape && shape.TryGetProperty("ContentItem", out object contentItem))
         {
             context["ContentItem"] = contentItem;
         }

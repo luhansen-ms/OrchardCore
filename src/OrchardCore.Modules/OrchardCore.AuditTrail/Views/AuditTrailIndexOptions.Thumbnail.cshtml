@@ -1,7 +1,7 @@
 @model IShape
 @using OrchardCore.DisplayManagement.Shapes
 @{
-    var content = Model.GetProperty<Shape>("Content");
+    var content = Model.GetProperty<ChangeShape>("Content");
     foreach(var shape in content.OfType<IShape>())
     {
         shape.Metadata.Wrappers.Add("AuditTrailAdminFilters_Thumbnail__Card");

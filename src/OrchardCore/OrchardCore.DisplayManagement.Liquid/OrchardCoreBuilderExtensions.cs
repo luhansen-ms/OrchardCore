@@ -53,7 +53,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     o.ValueConverters.Add(x =>
                     {
-                        if (x is Shape s)
+                        if (x is ChangeShape s)
                         {
                             return new ObjectValue(s);
                         }
@@ -64,7 +64,7 @@ namespace Microsoft.Extensions.DependencyInjection
                         return null;
                     });
 
-                    o.MemberAccessStrategy.Register<Shape>("*", new ShapeAccessor());
+                    o.MemberAccessStrategy.Register<ChangeShape>("*", new ShapeAccessor());
                     o.MemberAccessStrategy.Register<ZoneHolding>("*", new ShapeAccessor());
                     o.MemberAccessStrategy.Register<ShapeMetadata>();
 

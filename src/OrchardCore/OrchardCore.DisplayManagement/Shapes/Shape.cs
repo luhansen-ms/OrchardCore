@@ -12,7 +12,7 @@ using OrchardCore.DisplayManagement.Zones;
 namespace OrchardCore.DisplayManagement.Shapes
 {
     [DebuggerTypeProxy(typeof(ShapeDebugView))]
-    public class Shape : Composite, IShape, IPositioned, IEnumerable<object>
+    public class ChangeShape : ChangeComposite, IShape, IPositioned, IEnumerable<object>
     {
         private bool _sorted = false;
 
@@ -225,7 +225,7 @@ namespace OrchardCore.DisplayManagement.Shapes
 
         protected override bool TrySetMemberImpl(string name, object value)
         {
-            // We set the Shape real properties for Razor
+            // We set the ChangeShape real properties for Razor
 
             if (name == "Id")
             {

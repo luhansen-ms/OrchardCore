@@ -70,7 +70,7 @@ namespace OrchardCore.ContentManagement.Display.Placement
 
         private string GetStereotype(ShapePlacementContext context)
         {
-            var shape = context.ZoneShape as Shape;
+            var shape = context.ZoneShape as ChangeShape;
             object stereotypeVal = null;
             shape?.Properties?.TryGetValue("Stereotype", out stereotypeVal);
             return stereotypeVal?.ToString();
@@ -81,7 +81,7 @@ namespace OrchardCore.ContentManagement.Display.Placement
     {
         protected bool HasContent(ShapePlacementContext context)
         {
-            var shape = context.ZoneShape as Shape;
+            var shape = context.ZoneShape as ChangeShape;
             return shape != null && shape.TryGetProperty("ContentItem", out object contentItem) && contentItem != null;
         }
 
@@ -92,7 +92,7 @@ namespace OrchardCore.ContentManagement.Display.Placement
                 return null;
             }
 
-            var shape = context.ZoneShape as Shape;
+            var shape = context.ZoneShape as ChangeShape;
             shape.TryGetProperty("ContentItem", out ContentItem contentItem);
 
             return contentItem;

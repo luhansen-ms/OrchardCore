@@ -23,7 +23,7 @@ namespace OrchardCore.DisplayManagement.Liquid.Tags
         {
             var objectValue = (await arguments.Item1.EvaluateAsync(context)).ToObjectValue() as dynamic;
 
-            if (objectValue is Shape shape)
+            if (objectValue is ChangeShape shape)
             {
                 if (shape.Metadata.Type == "PagerSlim")
                 {

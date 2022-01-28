@@ -182,7 +182,7 @@ namespace OrchardCore.DisplayManagement.Descriptors.ShapeAttributeStrategy
 
         private static Func<DisplayContext, object> BindParameter(ParameterInfo parameter)
         {
-            if (String.Equals(parameter.Name, "Shape", StringComparison.OrdinalIgnoreCase))
+            if (String.Equals(parameter.Name, "ChangeShape", StringComparison.OrdinalIgnoreCase))
             {
                 return d => d.Value;
             }

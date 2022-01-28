@@ -168,7 +168,7 @@ namespace OrchardCore.DisplayManagement.Shapes
         [Shape]
         public async Task<IHtmlContent> TabContainer(IDisplayHelper displayAsync, GroupingsViewModel shape, IShapeFactory shapeFactory)
         {
-            var localNavigation = await shapeFactory.CreateAsync("LocalNavigation", Arguments.From(new
+            var localNavigation = await shapeFactory.CreateAsync("LocalNavigation", ChangeArguments.From(new
             {
                 shape.Identifier,
                 Tabs = shape.Groupings

@@ -23,7 +23,7 @@ namespace OrchardCore.DisplayManagement.Zones
     /// Foo.Alpha :same
     ///
     /// </summary>
-    public class ZoneHolding : Shape, IZoneHolding
+    public class ZoneHolding : ChangeShape, IZoneHolding
     {
         private readonly Func<ValueTask<IShape>> _zoneFactory;
 
@@ -58,7 +58,7 @@ namespace OrchardCore.DisplayManagement.Zones
     /// Then the zone shape is assigned in palce of the ZoneOnDemand. A ZoneOnDemand returns true when compared to null such that we can
     /// do Zones["Foo"] == null to see if anything has been added to a zone, without instantiating a zone when accessing the indexer.
     /// </remarks>
-    public class Zones : Composite
+    public class Zones : ChangeComposite
     {
         private readonly Func<ValueTask<IShape>> _zoneFactory;
         private readonly ZoneHolding _parent;
@@ -110,10 +110,10 @@ namespace OrchardCore.DisplayManagement.Zones
     /// <remarks>
     /// InterfaceProxyBehavior()
     /// NilBehavior() => return Nil on GetMember and GetIndex in all cases
-    /// ZoneOnDemandBehavior(_zoneFactory, _parent, name)  => when a zone (Shape) is
+    /// ZoneOnDemandBehavior(_zoneFactory, _parent, name)  => when a zone (ChangeShape) is
     /// created, replace itself with the zone so that Layout.ZoneName is no more equal to Nil
     /// </remarks>
-    public class ZoneOnDemand : Shape
+    public class ZoneOnDemand : ChangeShape
     {
         private readonly Func<ValueTask<IShape>> _zoneFactory;
         private readonly ZoneHolding _parent;

@@ -42,7 +42,7 @@ namespace OrchardCore.Shortcodes
                     {
                         // Prevent Context from being converted to an ArrayValue as it implements IEnumerable
                         Context c => new ObjectValue(c),
-                        // Prevent Arguments from being converted to an ArrayValue as it implements IEnumerable
+                        // Prevent ChangeArguments from being converted to an ArrayValue as it implements IEnumerable
                         Sc.Arguments a => new ObjectValue(a),
                         _ => null
                     };

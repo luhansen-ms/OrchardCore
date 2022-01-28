@@ -18,7 +18,7 @@ namespace OrchardCore.Tests.DisplayManagement
         }
         public static INamedEnumerable<T> Empty<T>()
         {
-            return Arguments.FromT(Enumerable.Empty<T>(), Enumerable.Empty<string>());
+            return ChangeArguments.FromT(Enumerable.Empty<T>(), Enumerable.Empty<string>());
         }
         public static INamedEnumerable<object> Empty()
         {
@@ -27,12 +27,12 @@ namespace OrchardCore.Tests.DisplayManagement
 
         private static INamedEnumerable<T> FromDictionary<T>(IDictionary<string, T> args)
         {
-            return Arguments.FromT(args.Values, args.Keys);
+            return ChangeArguments.FromT(args.Values, args.Keys);
         }
 
         public static INamedEnumerable<object> Positional(params object[] args)
         {
-            return Arguments.From(args, Enumerable.Empty<string>());
+            return ChangeArguments.From(args, Enumerable.Empty<string>());
         }
     }
 }

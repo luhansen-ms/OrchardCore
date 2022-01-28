@@ -61,7 +61,7 @@ namespace OrchardCore.DisplayManagement.Liquid.Tags
 
                 var zone = layout.Zones[name];
 
-                if (zone is Shape shape)
+                if (zone is ChangeShape shape)
                 {
                     await shape.AddAsync(content, position);
                 }

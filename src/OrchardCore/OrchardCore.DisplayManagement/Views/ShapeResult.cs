@@ -200,7 +200,7 @@ namespace OrchardCore.DisplayManagement.Views
 
             position = !String.IsNullOrEmpty(position) ? position : null;
 
-            if (parentShape is Shape shape)
+            if (parentShape is ChangeShape shape)
             {
                 await shape.AddAsync(newShape, position);
             }

@@ -26,7 +26,7 @@ namespace OrchardCore.DisplayManagement
     public static class ShapeFactoryExtensions
     {
         private static readonly ProxyGenerator ProxyGenerator = new ProxyGenerator();
-        private static readonly Func<ValueTask<IShape>> NewShape = () => new ValueTask<IShape>(new Shape());
+        private static readonly Func<ValueTask<IShape>> NewShape = () => new ValueTask<IShape>(new ChangeShape());
 
         /// <summary>
         /// Creates a new shape by copying the properties of the specific model.
@@ -37,7 +37,7 @@ namespace OrchardCore.DisplayManagement
         /// <returns></returns>
         public static ValueTask<IShape> CreateAsync<TModel>(this IShapeFactory factory, string shapeType, TModel model)
         {
-            return factory.CreateAsync(shapeType, Arguments.From(model));
+            return factory.CreateAsync(shapeType, ChangeArguments.From(model));
         }
 
         private static IShape CreateShape(Type baseType)
@@ -117,14 +117,14 @@ namespace OrchardCore.DisplayManagement
 
         public static ValueTask<IShape> CreateAsync<T>(this IShapeFactory factory, string shapeType, INamedEnumerable<T> parameters)
         {
-            if (parameters == null || parameters == Arguments.Empty)
+            if (parameters == null || parameters == ChangeArguments.Empty)
             {
                 return factory.CreateAsync(shapeType);
             }
 
             return factory.CreateAsync(shapeType, NewShape, null, createdContext =>
             {
-                var shape = (Shape)createdContext.Shape;
+                var shape = (ChangeShape)createdContext.Shape;
 
                 // If only one non-Type, use it as the source object to copy
 
@@ -132,8 +132,8 @@ namespace OrchardCore.DisplayManagement
 
                 if (initializer != null)
                 {
-                    // Use the Arguments class to optimize reflection code
-                    var arguments = Arguments.From(initializer);
+                    // Use the ChangeArguments class to optimize reflection code
+                    var arguments = ChangeArguments.From(initializer);
 
                     foreach (var prop in arguments.Named)
                     {

@@ -70,13 +70,13 @@
 
 //        public class SimpleShapes
 //        {
-//            [Shape]
+//            [ChangeShape]
 //            public IHtmlContent Something()
 //            {
 //                return new HtmlString("<br/>");
 //            }
 
-//            [Shape]
+//            [ChangeShape]
 //            public IHtmlContent Pager()
 //            {
 //                return new HtmlString("<div>hello</div>");
@@ -91,7 +91,7 @@
 
 //            var result1 = displayHelperFactory.Something();
 //            var result2 = await ((DisplayHelper)displayHelperFactory).ShapeExecuteAsync(shapeHelperFactory.Pager());
-//            var result3 = await ((DisplayHelper)displayHelperFactory).ShapeExecuteAsync((Shape)shapeHelperFactory.Pager());
+//            var result3 = await ((DisplayHelper)displayHelperFactory).ShapeExecuteAsync((ChangeShape)shapeHelperFactory.Pager());
 
 //            displayHelperFactory(shapeHelperFactory.Pager());
 

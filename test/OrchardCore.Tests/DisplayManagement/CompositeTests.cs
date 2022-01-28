@@ -60,7 +60,7 @@ namespace OrchardCore.Tests.DisplayManagement
         }
     }
 
-    public class Animal : Composite
+    public class Animal : ChangeComposite
     {
         public string Kind { get; set; }
         public string Color { get; set; }

@@ -5,7 +5,7 @@ namespace OrchardCore.Widgets
 {
     public class ContentCardShapes : IShapeTableProvider
     {
-        //Card Shape
+        //Card ChangeShape
         private const string ContentCardEdit = "ContentCard_Edit";
 
         //Frame shape

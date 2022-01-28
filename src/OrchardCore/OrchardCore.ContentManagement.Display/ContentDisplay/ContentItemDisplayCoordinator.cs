@@ -200,7 +200,7 @@ namespace OrchardCore.ContentManagement.Display
 
             var contentShape = context.Shape as IZoneHolding;
             var partsShape = await context.ShapeFactory.CreateAsync("ContentZone",
-                Arguments.From(new
+                ChangeArguments.From(new
                 {
                     Identifier = contentItem.ContentItemId
                 }));
@@ -280,7 +280,7 @@ namespace OrchardCore.ContentManagement.Display
 
             var contentShape = context.Shape as IZoneHolding;
             var partsShape = await context.ShapeFactory.CreateAsync("ContentZone",
-                Arguments.From(new
+                ChangeArguments.From(new
                 {
                     Identifier = contentItem.ContentItemId
                 }));

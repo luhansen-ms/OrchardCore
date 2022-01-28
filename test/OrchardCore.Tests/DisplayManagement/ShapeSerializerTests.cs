@@ -56,7 +56,7 @@ namespace OrchardCore.Tests.DisplayManagement
 
             var alpha = await shape.CreateAsync("Alpha");
 
-            var beta = await shape.CreateAsync("Beta", Arguments.From(new
+            var beta = await shape.CreateAsync("Beta", ChangeArguments.From(new
             {
                 Alpha = alpha
             }));

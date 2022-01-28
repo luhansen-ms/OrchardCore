@@ -49,7 +49,7 @@ namespace OrchardCore.DisplayManagement.Shapes
                 displayText = _shape.GetType().Name;
             }
 
-            jObject.Add("Shape", displayText);
+            jObject.Add("ChangeShape", displayText);
 
             var metadata = JObject.FromObject(_shape.Metadata, ShapeJsonSerializer);
 
@@ -71,7 +71,7 @@ namespace OrchardCore.DisplayManagement.Shapes
                 FindShapesInProperties(_shape);
             }
 
-            if (_shape is Shape actualShape && actualShape.HasItems && _shapes.Add(actualShape))
+            if (_shape is ChangeShape actualShape && actualShape.HasItems && _shapes.Add(actualShape))
             {
                 var jItems = new JArray();
                 // Because items can be mutated during shape execution.
@@ -95,7 +95,7 @@ namespace OrchardCore.DisplayManagement.Shapes
         {
             foreach (var property in shape.Properties.Values)
             {
-                if (property is Shape shapeProperty && _shapes.Add(shapeProperty) && shapeProperty.HasItems)
+                if (property is ChangeShape shapeProperty && _shapes.Add(shapeProperty) && shapeProperty.HasItems)
                 {
                     var shapeItems = shapeProperty.Items.ToArray();
                     foreach (IShape item in shapeItems)

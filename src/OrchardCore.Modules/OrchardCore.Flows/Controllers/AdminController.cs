@@ -65,11 +65,11 @@ namespace OrchardCore.Flows.Controllers
                 cardCollectionType = nameof(BagPart);
             }
 
-            //Create a Card Shape
+            //Create a Card ChangeShape
             dynamic contentCard = await _shapeFactory.New.ContentCard(
                 //Updater is the controller for AJAX Requests
                 Updater: _updateModelAccessor.ModelUpdater,
-                //Shape Specific
+                //ChangeShape Specific
                 CollectionShapeType: cardCollectionType,
                 ContentItem: contentItem,
                 BuildEditor: true,

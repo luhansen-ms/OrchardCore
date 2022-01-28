@@ -57,7 +57,7 @@ namespace OrchardCore.Admin
 
             // Populate main nav
             var menuShape = await _shapeFactory.CreateAsync("Navigation",
-                Arguments.From(new
+                ChangeArguments.From(new
                 {
                     MenuName = "admin",
                     filterContext.RouteData,
@@ -67,7 +67,7 @@ namespace OrchardCore.Admin
 
             var navigation = layout.Zones["Navigation"];
 
-            if (navigation is Shape shape)
+            if (navigation is ChangeShape shape)
             {
                 await shape.AddAsync(menuShape);
             }

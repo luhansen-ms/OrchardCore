@@ -136,7 +136,7 @@ namespace OrchardCore.Taxonomies
                             childTerms = termsArray.ToObject<ContentItem[]>();
                         }
 
-                        var shape = await shapeFactory.CreateAsync("TermItem", Arguments.From(new
+                        var shape = await shapeFactory.CreateAsync("TermItem", ChangeArguments.From(new
                         {
                             Level = level,
                             Term = termShape,
@@ -173,7 +173,7 @@ namespace OrchardCore.Taxonomies
                             {
                                 childTerms = termsArray.ToObject<ContentItem[]>();
                             }
-                            var shape = await shapeFactory.CreateAsync("TermItem", Arguments.From(new
+                            var shape = await shapeFactory.CreateAsync("TermItem", ChangeArguments.From(new
                             {
                                 Level = level + 1,
                                 TaxonomyContentItem = taxonomyContentItem,

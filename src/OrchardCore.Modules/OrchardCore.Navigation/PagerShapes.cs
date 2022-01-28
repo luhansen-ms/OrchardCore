@@ -145,7 +145,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public async Task<IHtmlContent> Pager_Links(Shape shape, DisplayContext displayContext, IShapeFactory shapeFactory, IHtmlHelper Html,
+        public async Task<IHtmlContent> Pager_Links(ChangeShape shape, DisplayContext displayContext, IShapeFactory shapeFactory, IHtmlHelper Html,
             string PagerId,
             int Page,
             int PageSize,
@@ -227,7 +227,7 @@ namespace OrchardCore.Navigation
             }
 
             // first
-            var firstItem = await shapeFactory.CreateAsync("Pager_First", Arguments.From(new
+            var firstItem = await shapeFactory.CreateAsync("Pager_First", ChangeArguments.From(new
             {
                 Value = firstText,
                 RouteValues = new RouteValueDictionary(routeData),
@@ -248,7 +248,7 @@ namespace OrchardCore.Navigation
                 routeData[pageKey] = currentPage - 1;
             }
 
-            var previousItem = await shapeFactory.CreateAsync("Pager_Previous", Arguments.From(new
+            var previousItem = await shapeFactory.CreateAsync("Pager_Previous", ChangeArguments.From(new
             {
                 Value = previousText,
                 RouteValues = new RouteValueDictionary(routeData),
@@ -266,7 +266,7 @@ namespace OrchardCore.Navigation
             // gap at the beginning of the pager
             if (firstPage > 1 && numberOfPagesToShow > 0)
             {
-                await shape.AddAsync(await shapeFactory.CreateAsync("Pager_Gap", Arguments.From(new
+                await shape.AddAsync(await shapeFactory.CreateAsync("Pager_Gap", ChangeArguments.From(new
                 {
                     Value = gapText,
                     Pager = shape
@@ -281,7 +281,7 @@ namespace OrchardCore.Navigation
                     if (p == currentPage)
                     {
                         routeData[pageKey] = currentPage;
-                        var currentPageItem = await shapeFactory.CreateAsync("Pager_CurrentPage", Arguments.From(new
+                        var currentPageItem = await shapeFactory.CreateAsync("Pager_CurrentPage", ChangeArguments.From(new
                         {
                             Value = p,
                             RouteValues = new RouteValueDictionary(routeData),
@@ -306,7 +306,7 @@ namespace OrchardCore.Navigation
                             routeData[pageKey] = p;
                         }
 
-                        var pagerItem = await shapeFactory.CreateAsync("Pager_Link", Arguments.From(new
+                        var pagerItem = await shapeFactory.CreateAsync("Pager_Link", ChangeArguments.From(new
                         {
                             Value = p,
                             RouteValues = new RouteValueDictionary(routeData),
@@ -330,7 +330,7 @@ namespace OrchardCore.Navigation
             // gap at the end of the pager
             if (lastPage < totalPageCount && numberOfPagesToShow > 0)
             {
-                await shape.AddAsync(await shapeFactory.CreateAsync("Pager_Gap", Arguments.From(new
+                await shape.AddAsync(await shapeFactory.CreateAsync("Pager_Gap", ChangeArguments.From(new
                 {
                     Value = gapText,
                     Pager = shape
@@ -339,7 +339,7 @@ namespace OrchardCore.Navigation
 
             // Next
             routeData[pageKey] = Page + 1;
-            var pagerNextItem = await shapeFactory.CreateAsync("Pager_Next", Arguments.From(new
+            var pagerNextItem = await shapeFactory.CreateAsync("Pager_Next", ChangeArguments.From(new
             {
                 Value = nextText,
                 RouteValues = new RouteValueDictionary(routeData),
@@ -356,7 +356,7 @@ namespace OrchardCore.Navigation
 
             // Last
             routeData[pageKey] = totalPageCount;
-            var pagerLastItem = await shapeFactory.CreateAsync("Pager_Last", Arguments.From(new
+            var pagerLastItem = await shapeFactory.CreateAsync("Pager_Last", ChangeArguments.From(new
             {
                 Value = lastText,
                 RouteValues = new RouteValueDictionary(routeData),
@@ -375,7 +375,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Links";
@@ -383,7 +383,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public async Task<IHtmlContent> PagerSlim(Shape shape, DisplayContext displayContext, IShapeFactory shapeFactory, IHtmlHelper Html,
+        public async Task<IHtmlContent> PagerSlim(ChangeShape shape, DisplayContext displayContext, IShapeFactory shapeFactory, IHtmlHelper Html,
             object PreviousText,
             object NextText,
             string PreviousClass,
@@ -416,7 +416,7 @@ namespace OrchardCore.Navigation
                     ["before"] = before
                 };
 
-                var previousItem = await shapeFactory.CreateAsync("Pager_Previous", Arguments.From(new
+                var previousItem = await shapeFactory.CreateAsync("Pager_Previous", ChangeArguments.From(new
                 {
                     Value = previousText,
                     RouteValues = beforeRouteData,
@@ -439,7 +439,7 @@ namespace OrchardCore.Navigation
                     ["after"] = after
                 };
 
-                var nextItem = await shapeFactory.CreateAsync("Pager_Next", Arguments.From(new
+                var nextItem = await shapeFactory.CreateAsync("Pager_Next", ChangeArguments.From(new
                 {
                     Value = nextText,
                     RouteValues = afterRouteData,
@@ -459,7 +459,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_First(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_First(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Link";
@@ -467,7 +467,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_Previous(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_Previous(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Link";
@@ -481,7 +481,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_CurrentPage(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_CurrentPage(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Link";
@@ -492,7 +492,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_Next(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_Next(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Link";
@@ -506,7 +506,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_Last(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_Last(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "Pager_Link";
@@ -514,7 +514,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public Task<IHtmlContent> Pager_Link(Shape shape, DisplayContext displayContext)
+        public Task<IHtmlContent> Pager_Link(ChangeShape shape, DisplayContext displayContext)
         {
             shape.Metadata.Alternates.Clear();
             shape.Metadata.Type = "ActionLink";
@@ -522,7 +522,7 @@ namespace OrchardCore.Navigation
         }
 
         [Shape]
-        public IHtmlContent ActionLink(Shape shape, IUrlHelper Url, object Value, bool Disabled = false)
+        public IHtmlContent ActionLink(ChangeShape shape, IUrlHelper Url, object Value, bool Disabled = false)
         {
             if (Disabled)
             {

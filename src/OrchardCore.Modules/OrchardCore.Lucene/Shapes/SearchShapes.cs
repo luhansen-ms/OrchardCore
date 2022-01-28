@@ -37,14 +37,14 @@ namespace OrchardCore.Lucene
         }
 
         [Shape]
-        public Task<IHtmlContent> SearchForm(Shape Shape, dynamic DisplayAsync, string Terms)
+        public Task<IHtmlContent> SearchForm(ChangeShape Shape, dynamic DisplayAsync, string Terms)
         {
             Shape.Metadata.Type = "Search__Form";
             return DisplayAsync(Shape);
         }
 
         [Shape]
-        public Task<IHtmlContent> SearchResults(Shape Shape, dynamic DisplayAsync, IEnumerable<ContentItem> ContentItems)
+        public Task<IHtmlContent> SearchResults(ChangeShape Shape, dynamic DisplayAsync, IEnumerable<ContentItem> ContentItems)
         {
             Shape.Metadata.Type = "Search__Results";
             return DisplayAsync(Shape);

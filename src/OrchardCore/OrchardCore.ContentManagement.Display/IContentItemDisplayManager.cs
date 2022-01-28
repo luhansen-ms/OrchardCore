@@ -6,7 +6,7 @@ namespace OrchardCore.ContentManagement.Display
 {
     /// <summary>
     /// Describes services responsible for displaying a content item. The result dynamic objects
-    /// are the Shape to render a <see cref="ContentItem"/>.
+    /// are the ChangeShape to render a <see cref="ContentItem"/>.
     /// </summary>
     public interface IContentItemDisplayManager
     {

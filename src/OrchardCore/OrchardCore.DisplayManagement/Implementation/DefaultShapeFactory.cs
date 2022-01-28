@@ -41,7 +41,7 @@ namespace OrchardCore.DisplayManagement.Implementation
                 binderName = binder.Name.Substring(binder.Name.Length - "Async".Length);
             }
 
-            result = ShapeFactoryExtensions.CreateAsync(this, binderName, Arguments.From(args, binder.CallInfo.ArgumentNames));
+            result = ShapeFactoryExtensions.CreateAsync(this, binderName, ChangeArguments.From(args, binder.CallInfo.ArgumentNames));
 
             return true;
         }

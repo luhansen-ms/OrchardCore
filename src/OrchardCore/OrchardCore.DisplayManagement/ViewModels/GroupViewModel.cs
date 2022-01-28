@@ -3,7 +3,7 @@ using OrchardCore.DisplayManagement.Shapes;
 
 namespace OrchardCore.DisplayManagement.ViewModels
 {
-    public class GroupViewModel : Shape
+    public class GroupViewModel : ChangeShape
     {
         public string Identifier { get; set; }
     }

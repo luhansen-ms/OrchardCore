@@ -108,7 +108,7 @@ namespace OrchardCore.DisplayManagement.TagHelpers
                 }
             }
 
-            var shape = await _shapeFactory.CreateAsync(Type, Arguments.From(properties));
+            var shape = await _shapeFactory.CreateAsync(Type, ChangeArguments.From(properties));
 
             if (output.Attributes.ContainsName("id"))
             {

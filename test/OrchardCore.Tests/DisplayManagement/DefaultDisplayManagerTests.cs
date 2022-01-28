@@ -80,7 +80,7 @@ namespace OrchardCore.Tests.DisplayManagement
             }
         }
 
-        private static DisplayContext CreateDisplayContext(Shape shape)
+        private static DisplayContext CreateDisplayContext(ChangeShape shape)
         {
             return new DisplayContext
             {
@@ -93,7 +93,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
 
             var descriptor = new ShapeDescriptor
@@ -116,7 +116,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Baz";
 
             _additionalBindings["Baz"] = new ShapeBinding
@@ -138,7 +138,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
             shape.Metadata.OnDisplaying(
                 context =>
@@ -166,7 +166,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
 
             var descriptor = new ShapeDescriptor
@@ -207,7 +207,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo__2";
 
             var descriptor = new ShapeDescriptor
@@ -230,7 +230,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
 
             var descriptor = new ShapeDescriptor
@@ -265,7 +265,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
 
             var descriptor = new ShapeDescriptor
@@ -300,7 +300,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo__2";
 
             var descriptor = new ShapeDescriptor
@@ -328,7 +328,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
             shape.Metadata.Alternates.Add("Foo__1");
             shape.Metadata.Alternates.Add("Foo__2");
@@ -361,7 +361,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shape = new Shape();
+            var shape = new ChangeShape();
             shape.Metadata.Type = "Foo";
 
             var descriptor = new ShapeDescriptor
@@ -388,7 +388,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var htmlDisplay = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shapeFoo = new Shape();
+            var shapeFoo = new ChangeShape();
             shapeFoo.Metadata.Type = "Foo";
 
             var descriptorFoo = new ShapeDescriptor
@@ -407,7 +407,7 @@ namespace OrchardCore.Tests.DisplayManagement
 
             var resultNormally = await htmlDisplay.ExecuteAsync(CreateDisplayContext(shapeFoo));
 
-            shapeFoo = new Shape();
+            shapeFoo = new ChangeShape();
             shapeFoo.Metadata.Type = "Foo";
             descriptorFoo.DisplayingAsync = new Func<ShapeDisplayContext, Task>[] { ctx => { ctx.Shape.Metadata.Alternates.Add("Bar"); return Task.CompletedTask; } };
             var resultWithOverride = await htmlDisplay.ExecuteAsync(CreateDisplayContext(shapeFoo));
@@ -421,7 +421,7 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var displayManager = _serviceProvider.GetService<IHtmlDisplay>();
 
-            var shapeFoo = new Shape();
+            var shapeFoo = new ChangeShape();
             shapeFoo.Metadata.Type = "Foo";
 
             var descriptorFoo = new ShapeDescriptor

@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace OrchardCore.DisplayManagement
 {
-    public static class Arguments
+    public static class ChangeArguments
     {
         private static ConcurrentDictionary<Type, Func<object, NamedEnumerable<object>>> _propertiesAccessors = new ConcurrentDictionary<Type, Func<object, NamedEnumerable<object>>>();
 

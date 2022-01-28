@@ -78,7 +78,7 @@ namespace OrchardCore.DisplayManagement.Implementation
                 var theme = await _themeManager.GetThemeAsync();
                 var shapeTable = _shapeTableManager.GetShapeTable(theme?.Id);
 
-                // Evaluate global Shape Display Events
+                // Evaluate global ChangeShape Display Events
                 await _shapeDisplayEvents.InvokeAsync((e, displayContext) => e.DisplayingAsync(displayContext), displayContext, _logger);
 
                 // Find base shape association using only the fundamental shape type.
@@ -123,7 +123,7 @@ namespace OrchardCore.DisplayManagement.Implementation
                     }
                     else
                     {
-                        throw new Exception($"Shape type '{shapeMetadata.Type}' not found");
+                        throw new Exception($"ChangeShape type '{shapeMetadata.Type}' not found");
                     }
                 }
 

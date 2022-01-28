@@ -21,7 +21,7 @@ namespace OrchardCore.DisplayManagement.Shapes
         }
 
         [Shape]
-        public async Task<IHtmlContent> List(Shape shape, DisplayContext displayContext, IEnumerable<object> Items,
+        public async Task<IHtmlContent> List(ChangeShape shape, DisplayContext displayContext, IEnumerable<object> Items,
             string ItemTagName,
             IEnumerable<string> ItemClasses,
             IDictionary<string, string> ItemAttributes,

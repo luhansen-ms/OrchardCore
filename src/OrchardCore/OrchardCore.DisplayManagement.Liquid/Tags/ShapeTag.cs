@@ -58,7 +58,7 @@ namespace OrchardCore.DisplayManagement.Liquid.Tags
                 }
             }
 
-            var shape = await shapeFactory.CreateAsync<object>(type, customAttributes == null ? Arguments.Empty : Arguments.From(customAttributes));
+            var shape = await shapeFactory.CreateAsync<object>(type, customAttributes == null ? ChangeArguments.Empty : ChangeArguments.From(customAttributes));
 
             if (!String.IsNullOrEmpty(id))
             {

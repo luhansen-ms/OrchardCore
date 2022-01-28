@@ -25,11 +25,11 @@
                 var metadata = ((ContentItem)widget).As<OrchardCore.Flows.Models.FlowMetadata>();
                 var colSize = (int)Math.Round((double)metadata.Size / 100.0 * 12);
 
-                //Create a Card Shape
+                //Create a Card ChangeShape
                 dynamic contentCard = await New.ContentCard(
                     //For Updater
                     CollectionShape: Model,
-                    //Shape Specific
+                    //ChangeShape Specific
                     CollectionShapeType: nameof(FlowPart),
                     ContentItem: widget,
                     BuildEditor: true,

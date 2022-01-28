@@ -89,7 +89,7 @@ namespace OrchardCore.AuditTrail.Controllers
             // Populate route values to maintain previous route data when generating page links.
             options.RouteValues.TryAdd("q", options.FilterResult.ToString());
 
-            var pagerShape = await _shapeFactory.CreateAsync("Pager", Arguments.From(new
+            var pagerShape = await _shapeFactory.CreateAsync("Pager", ChangeArguments.From(new
             {
                 pager.Page,
                 pager.PageSize,

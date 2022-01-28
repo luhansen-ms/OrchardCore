@@ -36,11 +36,11 @@
                             var index = 0;
                             foreach (var widget in Model.WidgetsListPart.Widgets[zone])
                             {
-                                //Create a Card Shape
+                                //Create a Card ChangeShape
                                 dynamic contentCard = await New.ContentCard(
                                     //For Updater
                                     CollectionShape: Model,
-                                    //Shape Specific
+                                    //ChangeShape Specific
                                     CollectionShapeType: nameof(WidgetsListPart),
                                     ContentItem: widget,
                                     BuildEditor: true,

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace OrchardCore.DisplayManagement.Shapes
 {
-    public class Composite : DynamicObject
+    public class ChangeComposite : DynamicObject
     {
         protected readonly Dictionary<string, object> _properties = new Dictionary<string, object>();
 
@@ -116,17 +116,17 @@ namespace OrchardCore.DisplayManagement.Shapes
             get { return _properties; }
         }
 
-        public static bool operator ==(Composite a, Nil b)
+        public static bool operator ==(ChangeComposite a, Nil b)
         {
             return null == a;
         }
 
-        public static bool operator !=(Composite a, Nil b)
+        public static bool operator !=(ChangeComposite a, Nil b)
         {
             return !(a == b);
         }
 
-        protected bool Equals(Composite other)
+        protected bool Equals(ChangeComposite other)
         {
             return Equals(_properties, other._properties);
         }
@@ -145,7 +145,7 @@ namespace OrchardCore.DisplayManagement.Shapes
             {
                 return false;
             }
-            return Equals((Composite)obj);
+            return Equals((ChangeComposite)obj);
         }
 
         public override int GetHashCode()

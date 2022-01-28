@@ -23,11 +23,11 @@
             var index = 0;
             foreach (var widget in Model.BagPart.ContentItems)
             {
-                //Create a Card Shape
+                //Create a Card ChangeShape
                 dynamic contentCard = await New.ContentCard(
                     // FOR Updater
                     CollectionShape: Model,
-                    //Shape Specific
+                    //ChangeShape Specific
                     CollectionShapeType: nameof(BagPart),
                     ContentItem: widget,
                     BuildEditor: true,

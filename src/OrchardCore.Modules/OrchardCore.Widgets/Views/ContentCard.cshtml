@@ -3,7 +3,7 @@
 
 @{
     var contentDefinitions = ContentDefinitionManager.ListTypeDefinitions();
-    //Set Model (Current Shape) as Child content of Outer Frame, Later this Model is used to render other shapes
+    //Set Model (Current ChangeShape) as Child content of Outer Frame, Later this Model is used to render other shapes
     dynamic contentCardFrame = await New.ContentCard_Frame();
 
     var contentItem = Model.ContentItem;
@@ -37,7 +37,7 @@
 
             Model.ContentEditor = contentItemEditor;
 
-            //Change Shape type to Editor, this shape will be rendered from within Other Frame
+            //Change ChangeShape type to Editor, this shape will be rendered from within Other Frame
             Model.Metadata.Alternates.Clear();
             Model.Metadata.Type = "ContentCard_Editor";
 
@@ -54,7 +54,7 @@
             //Hide the Delete
             Model.CanDelete = false;
 
-            //Change Shape type to Preview, this shape will be rendered from within Other Frame
+            //Change ChangeShape type to Preview, this shape will be rendered from within Other Frame
             Model.Metadata.Alternates.Clear();
             Model.Metadata.Type = "ContentCard_Preview";
 

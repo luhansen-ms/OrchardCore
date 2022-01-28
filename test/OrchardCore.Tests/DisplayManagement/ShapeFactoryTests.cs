@@ -119,7 +119,7 @@ namespace OrchardCore.Tests.DisplayManagement
             Assert.Equal("Baz", foo.Baz);
         }
 
-        private class SubShape : Shape
+        private class SubShape : ChangeShape
         {
         }
     }

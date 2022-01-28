@@ -37,8 +37,8 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var zoneOnDemand = CreateZoneOnDemand("SomeZone");
 
-            Shape zoneShape = zoneOnDemand;
-            Composite zoneComposite = zoneOnDemand;
+            ChangeShape zoneShape = zoneOnDemand;
+            ChangeComposite zoneComposite = zoneOnDemand;
             object zoneObject = zoneOnDemand;
 
             Assert.False(zoneShape == null);
@@ -71,8 +71,8 @@ namespace OrchardCore.Tests.DisplayManagement
         {
             var zoneOnDemand = CreateZoneOnDemand("SomeZone");
 
-            Shape zoneShape1 = zoneOnDemand, zoneShape2 = zoneOnDemand;
-            Composite zoneComposite1 = zoneOnDemand, zoneComposite2 = zoneOnDemand;
+            ChangeShape zoneShape1 = zoneOnDemand, zoneShape2 = zoneOnDemand;
+            ChangeComposite zoneComposite1 = zoneOnDemand, zoneComposite2 = zoneOnDemand;
             object zoneObject1 = zoneOnDemand, zoneObject2 = zoneOnDemand;
 
 #pragma warning disable 252,253
@@ -135,7 +135,7 @@ namespace OrchardCore.Tests.DisplayManagement
             var someZone = zoneHolding["SomeZone"];
 
             Assert.False(someZone is ZoneOnDemand);
-            Assert.False(someZone is Shape);
+            Assert.False(someZone is ChangeShape);
             Assert.True(someZone == null);
         }
 
@@ -150,7 +150,7 @@ namespace OrchardCore.Tests.DisplayManagement
             var someZone = zoneHolding["SomeZone"];
 
             Assert.False(someZone is ZoneOnDemand);
-            Assert.True(someZone is Shape);
+            Assert.True(someZone is ChangeShape);
             Assert.False(someZone == null);
 
             Assert.True(Object.ReferenceEquals(zoneHolding.SomeZone, someZone));
@@ -191,9 +191,9 @@ namespace OrchardCore.Tests.DisplayManagement
             Assert.True((string)zoneOnDemand == null);
         }
 
-        private static ZoneHolding CreateZoneHolding() => new ZoneHolding(() => new ValueTask<IShape>(new Shape()));
+        private static ZoneHolding CreateZoneHolding() => new ZoneHolding(() => new ValueTask<IShape>(new ChangeShape()));
 
         private static ZoneOnDemand CreateZoneOnDemand(string name, ZoneHolding zoneHolding = null) =>
-            new ZoneOnDemand(() => new ValueTask<IShape>(new Shape()), zoneHolding ?? CreateZoneHolding(), name);
+            new ZoneOnDemand(() => new ValueTask<IShape>(new ChangeShape()), zoneHolding ?? CreateZoneHolding(), name);
     }
 }

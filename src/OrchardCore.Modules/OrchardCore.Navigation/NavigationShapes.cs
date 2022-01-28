@@ -31,7 +31,7 @@ namespace OrchardCore.Navigation
                     // can be cached. IShapeDisplayEvents is called before the ShapeDescriptor
                     // events and thus this code can be cached.
 
-                    if (menu is Shape shape && shape.HasItems)
+                    if (menu is ChangeShape shape && shape.HasItems)
                     {
                         return;
                     }

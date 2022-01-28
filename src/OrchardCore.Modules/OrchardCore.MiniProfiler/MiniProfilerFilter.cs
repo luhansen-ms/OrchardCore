@@ -35,7 +35,7 @@ namespace OrchardCore.MiniProfiler
                 var layout = await _layoutAccessor.GetLayoutAsync();
                 var footerZone = layout.Zones["Footer"];
 
-                if (footerZone is Shape shape)
+                if (footerZone is ChangeShape shape)
                 {
                     await shape.AddAsync(await _shapeFactory.CreateAsync("MiniProfiler"));
                 }

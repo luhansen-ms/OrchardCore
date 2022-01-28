@@ -22,7 +22,7 @@ namespace OrchardCore.Liquid.Filters
 
             // Retrieve the 'ContentItem' from the ambient liquid scope.
             var model = context.GetValue("Model").ToObjectValue();
-            if (model is Shape shape && shape.Properties.TryGetValue("ContentItem", out var contentItem))
+            if (model is ChangeShape shape && shape.Properties.TryGetValue("ContentItem", out var contentItem))
             {
                 shortcodeContext["ContentItem"] = contentItem;
             }
