@@ -429,6 +429,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrchardCore.Themes", "Orcha
 		src\OrchardCore.Themes\Directory.Build.targets = src\OrchardCore.Themes\Directory.Build.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleClassLibrary", "SimpleClassLibrary\SimpleClassLibrary.csproj", "{F81D2EBF-9C5B-46B7-9D65-D00755A791D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1139,6 +1141,10 @@ Global
 		{D00CF459-396D-49C9-92E2-3FD3C2A59847}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D00CF459-396D-49C9-92E2-3FD3C2A59847}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D00CF459-396D-49C9-92E2-3FD3C2A59847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81D2EBF-9C5B-46B7-9D65-D00755A791D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81D2EBF-9C5B-46B7-9D65-D00755A791D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81D2EBF-9C5B-46B7-9D65-D00755A791D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81D2EBF-9C5B-46B7-9D65-D00755A791D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
